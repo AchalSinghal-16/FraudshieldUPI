@@ -5,6 +5,10 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  define: {
+    // This polyfills 'process.env' for browser compatibility (Fixes your Firebase error)
+    'process.env': {}
+  },
   resolve: {
     alias: {
       // Alias to browser-compatible modules
@@ -15,9 +19,9 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['path-browserify', 'url', 'source-map-js'], // Include the browser-compatible versions for Vite to handle
+    include: ['path-browserify', 'url', 'source-map-js'], 
   },
   build: {
-    sourcemap: false, // Optionally disable source maps for production if not needed
+    sourcemap: false, 
   },
 })

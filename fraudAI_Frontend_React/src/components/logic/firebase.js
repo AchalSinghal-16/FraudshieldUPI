@@ -1,20 +1,25 @@
 // Import Firebase modules
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
+// Your specific Firebase keys (DO NOT use process.env here for now)
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyCtFesddSbgSf8SexRcKUYIJpk9EKAL694",
+  authDomain: "fraudshieldupi.firebaseapp.com",
+  projectId: "fraudshieldupi",
+  storageBucket: "fraudshieldupi.firebasestorage.app",
+  messagingSenderId: "1091854097945",
+  appId: "1:1091854097945:web:3a7d3bf2a215ee4d0c9488",
+  measurementId: "G-ESP8R3VFQF"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Export these for use in Login and Dashboard components
 export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
+
+export default app;
